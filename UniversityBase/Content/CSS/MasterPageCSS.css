@@ -1,0 +1,37 @@
+﻿
+body {
+    background-color: #1986B1;
+}
+
+#Design {
+    padding-left: 10%;
+    padding-right: 5%;
+}
+
+h1 {
+    color: white;
+}
+
+a {
+    font-size: 30px;
+    background-color: azure;
+    padding: 10px;
+}
+p{
+   font-size:20px;
+}
+
+#menu {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#TextList {
+    background-color: white;
+    padding:10px;
+}
+.IndexAbout
+{
+    font-size:40px;
+}
+

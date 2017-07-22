@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/CSS/MasterPageCSS.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="Design">
+        <h1>Colorado University</h1>
+        <h1 style="text-align:center;">Student Database</h1>
+        <div id="menu">
+            <span>@Html.ActionLink("About", "Index", "Home")</span>
+            <span>@Html.ActionLink("Students", "Student", "Home")</span>
+            <span>@Html.ActionLink("Groups", "Group", "Home")</span>
+            <span>@Html.ActionLink("Marks", "Mark", "Home")</span>
+        </div>
+        <div id="TextList">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
