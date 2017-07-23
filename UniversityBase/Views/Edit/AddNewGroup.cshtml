@@ -1,0 +1,20 @@
+﻿@model UniversityBase.Models.Group
+@{
+    ViewBag.Title = "AddNewGroup";
+    Layout = "~/Views/Master_Layout.cshtml";
+}
+
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    <div>
+        <p>@Html.LabelFor(model => model.NameOfGroup, "Create a name of new Group")</p>
+        <p>@Html.EditorFor(model => model.NameOfGroup)</p>
+    </div>
+
+
+
+    <input type="submit" value="Send" />
+
+
+}
+

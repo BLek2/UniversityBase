@@ -1,8 +1,59 @@
-﻿
+﻿@model UniversityBase.Models.Student
 @{
     ViewBag.Title = "Student";
     Layout = "~/Views/Master_Layout.cshtml";
 }
 
-<h2>Student</h2>
+@using (Html.BeginForm("Student", "Home", FormMethod.Post))
+{
+    <div>
+    <p>
+    @Html.LabelFor(model=>model.Name)
+    </p>
+    <p>
+     @Html.EditorFor(model=>model.Name)
+    </p>
+    </div>
+
+    <div>
+        <p>
+            @Html.LabelFor(model => model.Surname)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.Surname)
+        </p>
+    </div>
+
+    <div>
+        <p>
+            @Html.LabelFor(model => model.AgeOfBirth)
+        </p>
+        <p>
+            <input type="date" name="AgeOfBirth"/>
+
+        </p>
+    </div>
+    
+    <div>
+        <p>
+            @Html.LabelFor(model => model.Age)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.Age)
+        </p>
+    </div>
+
+    <div>
+        <p>
+            @Html.LabelFor(model => model.Course)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.Course)
+        </p>
+    </div>
+
+    <input type="submit" value="Send"/>
+
+}
+
 
