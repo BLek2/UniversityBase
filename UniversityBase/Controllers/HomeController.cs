@@ -9,7 +9,7 @@ namespace UniversityBase.Controllers
 {
     public class HomeController : Controller
     {
-        StudentContext GroupDb = new StudentContext();
+        StudentContext UniversityDb = new StudentContext();
 
         // GET: Home
         public ActionResult Index()
@@ -20,13 +20,17 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult Student()
         {
-            
+            IEnumerable<Student> students = UniversityDb.Students;
+            ViewBag.students = students;
+
 
             return View();
         }
         [HttpPost]
         public ActionResult Student(Student student)
         {
+            IEnumerable<Student> students = UniversityDb.Students;
+            ViewBag.students = students;
             
 
             return View();
@@ -34,7 +38,7 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult Group()
         {
-            IEnumerable<Group> groups = GroupDb.Groups;
+            IEnumerable<Group> groups = UniversityDb.Groups;
             ViewBag.groups = groups;
 
 
@@ -48,6 +52,8 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult Mark()
         {
+      
+
             return View();
         }
         [HttpPost]

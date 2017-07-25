@@ -132,6 +132,7 @@
     <Content Include="Views\Home\Mark.cshtml" />
     <Content Include="Views\Edit\AddNewGroup.cshtml" />
     <Content Include="Views\Edit\AddNewStudent.cshtml" />
+    <Content Include="Views\Edit\AddNewMarkStudent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

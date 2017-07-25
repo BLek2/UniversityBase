@@ -1,0 +1,88 @@
+﻿@model UniversityBase.Models.Mark
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddNewMarkStudent</title>
+</head>
+<body>
+    @using (Html.BeginForm("AddNewMarkStudent", "Edit", FormMethod.Post))
+    {
+    <div> 
+        <p>
+        @Html.LabelFor(model => model.Math)
+        </p>
+        <p>
+         @Html.EditorFor(model => model.Math)
+        </p>
+    </div>
+    <div>
+        <p>
+            @Html.LabelFor(model => model.History)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.History)
+        </p>
+    </div>
+    <div>
+        <p>
+            @Html.LabelFor(model => model.Psychology)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.Psychology)
+        </p>
+    </div>
+    <div>
+        <p>
+            @Html.LabelFor(model => model.Literature)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.Literature)
+        </p>
+    </div>
+    <div>
+        <p>
+            @Html.LabelFor(model => model.Cooking)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.Cooking)
+        </p>
+    </div>
+    <div>
+        <p>
+            @Html.LabelFor(model => model.Music)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.Law)
+        </p>
+    </div>
+    <div>
+        <p>
+            @Html.LabelFor(model => model.Programming)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.Programming)
+        </p>
+    </div>
+    <div>
+        <p>
+            @Html.LabelFor(model => model.WebDesign)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.WebDesign)
+        </p>
+    </div>
+    <div>
+        <p>
+        @Html.DropDownListFor(model=>model.IdStudent,ViewBag.marks as SelectList)
+        
+    </div>
+    <input type="submit" value="Отправить"/>
+    }
+</body>
+</html>

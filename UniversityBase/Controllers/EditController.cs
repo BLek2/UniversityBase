@@ -9,7 +9,7 @@ namespace UniversityBase.Controllers
 {
     public class EditController : Controller
     {
-        StudentContext GroupDb = new StudentContext();
+        StudentContext UniversityDb = new StudentContext();
         // GET: Edit
         [HttpGet]
         public ActionResult AddNewGroup()
@@ -18,32 +18,78 @@ namespace UniversityBase.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddNewGroup(Group group)
+        public JsonResult AddNewGroup(Group group)
         {
-            GroupDb.Groups.Add(group);
-            GroupDb.SaveChanges();
+            IEnumerable<Group> groups = UniversityDb.Groups;
+            foreach (var b in groups)
+            {
+                if (b.NameOfGroup == group.NameOfGroup)
+                {
+                    return Json("This name of group is already exist!");
+                }
+            }
+            Group OurNewGroup = new Group
+            {
+                NameOfGroup = group.NameOfGroup,
+                CountOfUsers = 0
+                
+            };
+            UniversityDb.Groups.Add(OurNewGroup);
+            UniversityDb.SaveChanges();
 
-            return View();
+            return Json("The group was successfully added!");
         }
         [HttpGet]
         public ActionResult AddNewStudent()
         {
-            SelectList groups = new SelectList(GroupDb.Groups, "Id", "NameOfGroup");
+            SelectList groups = new SelectList(UniversityDb.Groups, "Id", "NameOfGroup");
             ViewBag.Groups = groups;
 
             return View();
         }
         [HttpPost]
-        public ActionResult AddNewStudent(Student student)
+        public JsonResult AddNewStudent(Student student)
         {
-            GroupDb.Students.Add(student);
-            GroupDb.SaveChanges();
 
-            SelectList groups = new SelectList(GroupDb.Groups, "Id", "NameOfGroup");
+
+
+            UniversityDb.Students.Add(student);
+            UniversityDb.SaveChanges();
+
+            SelectList groups = new SelectList(UniversityDb.Groups, "Id", "NameOfGroup");
             ViewBag.Groups = groups;
 
 
+            return Json("Student was successfully added  ");
+        }
+        [HttpGet]
+        public ActionResult AddNewMarkStudent()
+        {
+            SelectList marks = new SelectList(UniversityDb.Students, "Id", "Name");
+            ViewBag.marks = marks;
+
             return View();
+        }
+        [HttpPost]
+        public JsonResult AddNewMarkStudent(Mark mark)
+        {
+            IEnumerable<Mark> DbMark = UniversityDb.Marks;
+            foreach(var b in DbMark)
+            {
+                if(b.IdStudent == mark.IdStudent)
+                {
+                    return Json("There is already exist a similar Student with marks"); 
+                }
+            }
+
+            UniversityDb.Marks.Add(mark);
+            UniversityDb.SaveChanges();
+
+
+             SelectList marks = new SelectList(UniversityDb.Students, "Id", "Name");
+            ViewBag.marks = marks;
+
+            return Json("Marks for student successfully added!");
         }
     }
 }

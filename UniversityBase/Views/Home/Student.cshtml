@@ -13,4 +13,26 @@
 <p style="text-align:right;">@Ajax.ActionLink("Add  new student", "AddNewStudent", "Edit", new AjaxOptions { UpdateTargetId = "AddStudent" })</p>
 
 <div id="AddStudent"></div>
+<hr/>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>AgeOfBirth</th>
+        <th>Course</th>
+        <th>Age</th>
+        <th>Group</th>
 
+    </tr>
+    @foreach (var b in ViewBag.students)
+    {
+        <tr>
+            <td>@b.Name</td>
+            <td>@b.Surname</td>
+            <td>@b.AgeOfBirth</td>
+            <td>@b.Course</td>
+            <td>@b.Age</td>
+            <td>@b.GroupId</td>
+        </tr>
+    }
+</table>
