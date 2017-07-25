@@ -3,57 +3,14 @@
     ViewBag.Title = "Student";
     Layout = "~/Views/Master_Layout.cshtml";
 }
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
 
-@using (Html.BeginForm("Student", "Home", FormMethod.Post))
-{
-    <div>
-    <p>
-    @Html.LabelFor(model=>model.Name)
-    </p>
-    <p>
-     @Html.EditorFor(model=>model.Name)
-    </p>
-    </div>
 
-    <div>
-        <p>
-            @Html.LabelFor(model => model.Surname)
-        </p>
-        <p>
-            @Html.EditorFor(model => model.Surname)
-        </p>
-    </div>
+<p style="text-align:right;">@Ajax.ActionLink("Add  new student", "AddNewStudent", "Edit", new AjaxOptions { UpdateTargetId = "AddStudent" })</p>
 
-    <div>
-        <p>
-            @Html.LabelFor(model => model.AgeOfBirth)
-        </p>
-        <p>
-            <input type="date" name="AgeOfBirth"/>
-
-        </p>
-    </div>
-    
-    <div>
-        <p>
-            @Html.LabelFor(model => model.Age)
-        </p>
-        <p>
-            @Html.EditorFor(model => model.Age)
-        </p>
-    </div>
-
-    <div>
-        <p>
-            @Html.LabelFor(model => model.Course)
-        </p>
-        <p>
-            @Html.EditorFor(model => model.Course)
-        </p>
-    </div>
-
-    <input type="submit" value="Send"/>
-
-}
-
+<div id="AddStudent"></div>
 

@@ -46,6 +46,6 @@ C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\Uni
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.Webpages.Razor.xml
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.Helpers.xml
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.Mvc.xml
-C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.csprojResolveAssemblyReference.cache
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.dll
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.pdb
+C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.csprojResolveAssemblyReference.cache

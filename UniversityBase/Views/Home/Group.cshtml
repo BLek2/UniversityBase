@@ -3,6 +3,41 @@
     ViewBag.Title = "Group";
     Layout = "~/Views/Master_Layout.cshtml";
 }
+<script src="~/Scripts/jquery-3.1.1.js" ></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js" ></script>
+<style>
+    a{
+        text-decoration:none;
+
+    }
+    table {
+        border-collapse: collapse;
+        font-size: 30px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
 
 
+<p style="text-align:right;">@Ajax.ActionLink("Add  new group", "AddNewGroup", "Edit",new AjaxOptions { UpdateTargetId= "AddGroup" })</p>
 
+<div id="AddGroup" ></div>
+<hr/>
+<table>
+    <tr>
+    <th>Name Of Group</th>
+    <th>Count Students</th>
+
+    </tr>
+ 
+@foreach(var b in ViewBag.groups)
+{
+   <tr>
+    <td>@b.NameOfGroup</td>
+    <td>@b.CountOfUsers</td>
+  </tr>
+}
+
+</table>

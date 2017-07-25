@@ -19,6 +19,8 @@ namespace UniversityBase.Models
         public int? Law { get; set; }
         public int? Programming { get; set; }
         public int? WebDesign { get; set; }
+        public int IdStudent { get; set; }
+        public Student Student { get; set; }
         
     }
 }

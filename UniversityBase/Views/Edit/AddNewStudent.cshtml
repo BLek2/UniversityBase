@@ -1,0 +1,78 @@
+﻿@model UniversityBase.Models.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddNewStudent</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("Student", "Home", FormMethod.Post))
+        {
+            <div>
+                <p>
+                    @Html.LabelFor(model => model.Name)
+                </p>
+                <p>
+                    @Html.EditorFor(model => model.Name)
+
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    @Html.LabelFor(model => model.Surname)
+                </p>
+                <p>
+                    @Html.EditorFor(model => model.Surname)
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    @Html.LabelFor(model => model.AgeOfBirth)
+                </p>
+                <p>
+                    <input type="date" name="AgeOfBirth" />
+
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    @Html.LabelFor(model => model.Age)
+                </p>
+                <p>
+                    @Html.EditorFor(model => model.Age)
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    @Html.LabelFor(model => model.Course)
+                </p>
+                <p>
+                    @Html.EditorFor(model => model.Course)
+                </p>
+
+            </div>
+            <div>
+                <p>
+                    Choouse a group
+                </p>
+                <p>
+                    @Html.DropDownListFor(model => model.GroupId, ViewBag.Groups as SelectList)
+                </p>
+            </div>
+
+            <input type="submit" value="Send" />
+
+        }
+    </div>
+</body>
+</html>

@@ -12,13 +12,16 @@ h1 {
     color: white;
 }
 
-a {
+div .MenuItem {
     font-size: 30px;
     background-color: azure;
     padding: 10px;
+    text-decoration: none;
 }
-p{
-   font-size:20px;
+
+
+p {
+    font-size: 20px;
 }
 
 #menu {

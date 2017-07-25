@@ -103,7 +103,9 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -115,7 +117,7 @@
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Mark.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\StudentUniversityContext.cs" />
+    <Compile Include="Models\StudentContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +131,7 @@
     <Content Include="Views\Home\Group.cshtml" />
     <Content Include="Views\Home\Mark.cshtml" />
     <Content Include="Views\Edit\AddNewGroup.cshtml" />
+    <Content Include="Views\Edit\AddNewStudent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

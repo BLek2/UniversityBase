@@ -1,13 +1,14 @@
 ﻿@model UniversityBase.Models.Group
 @{
-    ViewBag.Title = "AddNewGroup";
-    Layout = "~/Views/Master_Layout.cshtml";
+    Layout = null;
 }
+<script src="~/Scripts/jquery-3.1.1.js" ></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js" ></script>
 
-@using (Html.BeginForm("", "", FormMethod.Post))
+@using (Html.BeginForm("AddNewGroup", "Edit", FormMethod.Post))
 {
     <div>
-        <p>@Html.LabelFor(model => model.NameOfGroup, "Create a name of new Group")</p>
+        <p>@Html.LabelFor(model => model.NameOfGroup, "Create name of new Group")</p>
         <p>@Html.EditorFor(model => model.NameOfGroup)</p>
     </div>
 

@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/Content/CSS/MasterPageCSS.css" type="text/css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.js"  type="text/javascript"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="Design">
         <h1>Colorado University</h1>
         <h1 style="text-align:center;">Student Database</h1>
         <div id="menu">
-            <span>@Html.ActionLink("About", "Index", "Home")</span>
-            <span>@Html.ActionLink("Students", "Student", "Home")</span>
-            <span>@Html.ActionLink("Groups", "Group", "Home")</span>
-            <span>@Html.ActionLink("Marks", "Mark", "Home")</span>
+            <span>@Html.ActionLink("About", "Index", "Home", new { @class="MenuItem"})</span>
+            <span>@Html.ActionLink("Students", "Student", "Home", new { @class = "MenuItem" })</span>
+            <span>@Html.ActionLink("Groups", "Group", "Home", new { @class = "MenuItem" })</span>
+            <span>@Html.ActionLink("Marks", "Mark", "Home", new { @class = "MenuItem" })</span>
         </div>
         <div id="TextList">
             @RenderBody()
