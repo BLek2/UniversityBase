@@ -33,6 +33,14 @@
             <td>@b.Course</td>
             <td>@b.Age</td>
             <td>@b.GroupId</td>
+            <td>
+                @using (Html.BeginForm("DeleteStudent", "Edit", FormMethod.Post))
+                {
+                    <input type="hidden" value="@b.Id" name="Id" id="Id">
+                    <input type="submit" value="Delete" />
+                }
+
+            </td>
         </tr>
     }
 </table>

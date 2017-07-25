@@ -11,12 +11,10 @@
 
     }
     table {
-        border-collapse: collapse;
         font-size: 30px;
     }
 
     table, th, td {
-        border: 1px solid black;
     }
 </style>
 
@@ -29,15 +27,27 @@
     <tr>
     <th>Name Of Group</th>
     <th>Count Students</th>
+    <th></th>
 
     </tr>
  
 @foreach(var b in ViewBag.groups)
 {
    <tr>
+     
     <td>@b.NameOfGroup</td>
     <td>@b.CountOfUsers</td>
-  </tr>
+    <td>
+        @using (Html.BeginForm("DeleteGroup", "Edit", FormMethod.Post))
+        {
+            <input type="hidden" value="@b.Id" name="Id" id="Id">
+            <input type="submit" value="Delete"/>
+        }
+      
+    </td>
+
+   </tr>
+
 }
 
 </table>

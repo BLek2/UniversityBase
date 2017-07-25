@@ -10,7 +10,7 @@ namespace UniversityBase.Controllers
     public class EditController : Controller
     {
         StudentContext UniversityDb = new StudentContext();
-        // GET: Edit
+        // GET, POST For Add new Model
         [HttpGet]
         public ActionResult AddNewGroup()
         {
@@ -18,7 +18,7 @@ namespace UniversityBase.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddNewGroup(Group group)
+        public ActionResult AddNewGroup(Group group)
         {
             IEnumerable<Group> groups = UniversityDb.Groups;
             foreach (var b in groups)
@@ -34,10 +34,13 @@ namespace UniversityBase.Controllers
                 CountOfUsers = 0
                 
             };
-            UniversityDb.Groups.Add(OurNewGroup);
-            UniversityDb.SaveChanges();
-
-            return Json("The group was successfully added!");
+            if(ModelState.IsValid)
+            {
+                UniversityDb.Groups.Add(OurNewGroup);
+                UniversityDb.SaveChanges();
+                return Json("The group was successfully added!");
+            }
+            return View(group);
         }
         [HttpGet]
         public ActionResult AddNewStudent()
@@ -48,19 +51,22 @@ namespace UniversityBase.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult AddNewStudent(Student student)
+        public ActionResult AddNewStudent(Student student)
         {
 
+            if(ModelState.IsValid)
+            {
+                UniversityDb.Students.Add(student);
+                UniversityDb.SaveChanges();
+                return Json("Student was successfully added  ");
+            }
 
 
-            UniversityDb.Students.Add(student);
-            UniversityDb.SaveChanges();
 
             SelectList groups = new SelectList(UniversityDb.Groups, "Id", "NameOfGroup");
             ViewBag.Groups = groups;
 
-
-            return Json("Student was successfully added  ");
+            return View(student);
         }
         [HttpGet]
         public ActionResult AddNewMarkStudent()
@@ -90,6 +96,37 @@ namespace UniversityBase.Controllers
             ViewBag.marks = marks;
 
             return Json("Marks for student successfully added!");
+        }
+        //GET, POST for Delete Model
+        [HttpPost]
+        public ActionResult DeleteGroup(int Id)
+        {
+            var FindId = UniversityDb.Groups.Find(Id);
+            UniversityDb.Groups.Remove(FindId);
+            UniversityDb.SaveChanges();
+
+
+            return RedirectToAction("Group", "Home");
+        }
+        [HttpPost]
+        public ActionResult DeleteMark(int Id)
+        {
+            var FindId = UniversityDb.Marks.Find(Id);
+            UniversityDb.Marks.Remove(FindId);
+            UniversityDb.SaveChanges();
+
+
+            return RedirectToAction("Mark", "Home");
+        }
+        [HttpPost]
+        public ActionResult DeleteStudent(int Id)
+        {
+            var FindId = UniversityDb.Students.Find(Id);
+            UniversityDb.Students.Remove(FindId);
+            UniversityDb.SaveChanges();
+
+
+            return RedirectToAction("Student", "Home");
         }
     }
 }

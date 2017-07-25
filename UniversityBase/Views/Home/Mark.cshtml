@@ -1,12 +1,14 @@
-﻿
+﻿@model UniversityBase.Models.Mark
 @{
     ViewBag.Title = "Mark";
     Layout = "~/Views/Master_Layout.cshtml";
 }
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css" />
 
 <p style="text-align:right;">@Ajax.ActionLink("Add  new marks", "AddNewMarkStudent", "Edit", new AjaxOptions { UpdateTargetId = "AddMarks" })</p>
 
 <div id="AddMarks"></div>
 <hr />
-
 

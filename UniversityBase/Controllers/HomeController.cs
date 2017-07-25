@@ -52,7 +52,10 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult Mark()
         {
-      
+            IEnumerable<Mark> marks = UniversityDb.Marks;
+            ViewBag.marks = marks;
+
+
 
             return View();
         }
