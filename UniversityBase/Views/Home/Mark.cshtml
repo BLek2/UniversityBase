@@ -11,4 +11,41 @@
 
 <div id="AddMarks"></div>
 <hr />
+<table>
+    <tr>
+        <th>Math</th>
+        <th>History</th>
+        <th>Psychology</th>
+        <th>Literature</th>
+        <th>Cooking</th>
+        <th>Music</th>
+        <th>Law</th>
+        <th>Programming</th>
+        <th>WebDesign</th>
+        <th>Student</th>
+        <th></th>
+    </tr>
+   @foreach(var b in ViewBag.marks)
+   {
+       <tr>
+           <td>@b.Math</td>
+           <td>@b.History</td>
+           <td>@b.Psychology</td>
+           <td>@b.Literature</td>
+           <td>@b.Cooking</td>
+           <td>@b.Music</td>
+           <td>@b.Law</td>
+           <td>@b.Programming</td>
+           <td>@b.WebDesign</td>
+           <td>@b.IdStudent</td>
+           <td>
+               @using (Html.BeginForm("DeleteMark", "Edit", FormMethod.Post))
+               {
+                   <input type="hidden"  id="@b.Id" name="@b.Id" value="@b.Id"/>
+                   <input type="submit" value="Delete"/>
+               }
+           </td>
+       </tr>
 
+   }
+</table>
