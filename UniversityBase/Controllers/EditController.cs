@@ -128,5 +128,87 @@ namespace UniversityBase.Controllers
 
             return RedirectToAction("Student", "Home");
         }
+        //GET, POST for Edit Model
+
+        //Mark -- EDIT
+        [HttpGet]
+        public ActionResult ChangeOurMark(Mark SendModel)
+        {
+
+
+            return View(SendModel);
+        }
+        [HttpPost]
+        public ActionResult ChangeOurMark(Mark mark, int Id)
+        {
+            UniversityDb.Entry(mark).State = System.Data.Entity.EntityState.Modified;
+            UniversityDb.SaveChanges();
+
+
+            return RedirectToAction("Mark", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult EditMark(int Id)
+        {
+            var SendModel = UniversityDb.Marks.Find(Id);
+
+
+            return View("ChangeOurMark", SendModel);
+        }
+
+
+        //Group -- EDIT
+        [HttpPost]
+        public ActionResult EditGroup(int Id)
+        {
+            var SendModel = UniversityDb.Groups.Find(Id);
+
+
+            return View("ChangeOurGroup", SendModel);
+        }
+        [HttpGet]
+        public ActionResult ChangeOurGroup(Group SendModel)
+        {
+
+
+            return View(SendModel);
+        }
+        [HttpPost]
+        public ActionResult ChangeOurGroup(Group group, int Id)
+        {
+            UniversityDb.Entry(group).State = System.Data.Entity.EntityState.Modified;
+            UniversityDb.SaveChanges();
+
+
+            return RedirectToAction("Group", "Home");
+        }
+        //Student -- EDIT:
+
+    
+        [HttpPost]
+        public ActionResult EditStudent(int Id)
+        {
+            var SendModel = UniversityDb.Students.Find(Id);
+
+
+            return View("ChangeOurStudent", SendModel);
+        }
+        [HttpGet]
+        public ActionResult ChangeOurStudent(Student SendModel)
+        {
+           
+
+            return View(SendModel);
+        }
+        [HttpPost]
+        public ActionResult ChangeOurStudent(Student student, int Id)
+        {
+            UniversityDb.Entry(student).State = System.Data.Entity.EntityState.Modified;
+            UniversityDb.SaveChanges();
+
+
+            return RedirectToAction("Student","Home");
+        }
     }
 }

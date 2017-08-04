@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StudentResult</title>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>AgeOfBirth</th>
+            <th>Course</th>
+            <th>Age</th>
+            <th>Group</th>
+
+        </tr>
+        @foreach (var b in ViewBag.StudentsByName)
+        {
+            <tr>
+                <td>@b.Name</td>
+                <td>@b.Surname</td>
+                <td>@b.AgeOfBirth</td>
+                <td>@b.Course</td>
+                <td>@b.Age</td>
+                <td>@b.GroupId</td>
+                <td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

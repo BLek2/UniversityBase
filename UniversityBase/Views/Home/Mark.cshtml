@@ -5,7 +5,9 @@
 }
 <script src="~/Scripts/jquery-3.1.1.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/General/FirstJs.js" type="text/javascript" ></script>
 <link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css" />
+
 
 <p style="text-align:right;">@Ajax.ActionLink("Add  new marks", "AddNewMarkStudent", "Edit", new AjaxOptions { UpdateTargetId = "AddMarks" })</p>
 
@@ -39,9 +41,16 @@
            <td>@b.WebDesign</td>
            <td>@b.IdStudent</td>
            <td>
-               @using (Html.BeginForm("DeleteMark", "Edit", FormMethod.Post))
+               @using (Html.BeginForm("EditMark", "Edit", FormMethod.Post))
                {
-                   <input type="hidden"  id="@b.Id" name="@b.Id" value="@b.Id"/>
+                <input type="hidden" id="Id" name="Id" value="@b.Id" />
+                <input type="submit" value="Edit" />
+               }
+           </td>
+           <td>
+               @using (Html.BeginForm("DeleteMark", "Edit", FormMethod.Post, new { onsubmit = "return WannaReally()" }))
+               {
+                   <input type="hidden"  id="Id" name="Id" value="@b.Id"/>
                    <input type="submit" value="Delete"/>
                }
            </td>

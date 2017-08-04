@@ -1,0 +1,24 @@
+﻿@model UniversityBase.Models.Group
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdvanceSearch</title>
+</head>
+<body>
+    <div> 
+        <label>Age</label>
+        <input type="number" name="Age" id="Age" />
+        <label>Course</label>
+        <input type="number" name="Course" id="Course" />
+        <label>Group</label>
+        @Html.DropDownListFor(model=>model.NameOfGroup,ViewBag.selectedGroup as SelectList)
+    </div>
+</body>
+</html>

@@ -5,6 +5,9 @@
 }
 <script src="~/Scripts/jquery-3.1.1.js" ></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js" ></script>
+<script src="~/Scripts/General/FirstJs.js" type="text/javascript"></script>
+<link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css" />
+
 <style>
     a{
         text-decoration:none;
@@ -25,21 +28,31 @@
     <th></th>
 
     </tr>
- 
+
 @foreach(var b in ViewBag.groups)
 {
    <tr>
-     
+
     <td>@b.NameOfGroup</td>
     <td>@b.CountOfUsers</td>
     <td>
-        @using (Html.BeginForm("DeleteGroup", "Edit", FormMethod.Post))
+           @using (Html.BeginForm("EditGroup", "Edit", FormMethod.Post))
+           {
+               <input type="hidden" value="@b.Id" name="Id" id="Id">
+               <input type="submit" value="Edit" />
+
+           }
+    </td>
+    <td>
+        @using (Html.BeginForm("DeleteGroup", "Edit", FormMethod.Post, new { onsubmit = "return WannaReally()" }))
         {
             <input type="hidden" value="@b.Id" name="Id" id="Id">
             <input type="submit" value="Delete"/>
         }
-      
+
     </td>
+
+
 
    </tr>
 

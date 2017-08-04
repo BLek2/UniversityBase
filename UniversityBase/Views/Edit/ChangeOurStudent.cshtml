@@ -1,0 +1,48 @@
+﻿@model UniversityBase.Models.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ChangeOurStudent</title>
+    <link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    @using (Html.BeginForm("ChangeOurStudent", "Edit", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <div>
+            <p> @Html.LabelFor(model => model.Name)</p>
+            <p> @Html.EditorFor(model => model.Name) @Html.ValidationMessageFor(model=>model.Name) </p>
+        </div>
+        <div>
+            <p> @Html.LabelFor(model => model.Surname)</p>
+            <p> @Html.EditorFor(model => model.Surname) @Html.ValidationMessageFor(model => model.Surname) </p>
+        </div>
+        <div>
+            <p> @Html.LabelFor(model => model.AgeOfBirth)</p>
+            <p> @Html.EditorFor(model => model.AgeOfBirth) @Html.ValidationMessageFor(model => model.AgeOfBirth)  </p>
+        </div>
+        <div>
+            <p> @Html.LabelFor(model => model.Age)</p>
+            <p> @Html.EditorFor(model => model.Age)  @Html.ValidationMessageFor(model => model.Age) </p>
+        </div>
+        <div>
+            <p> @Html.LabelFor(model => model.Course)</p>
+            <p> @Html.EditorFor(model => model.Course) @Html.ValidationMessageFor(model => model.Course) </p>
+        </div>
+        <div>
+            <p> @Html.LabelFor(model => model.GroupId)</p>
+            <p> @Html.EditorFor(model => model.GroupId)  @Html.ValidationMessageFor(model => model.GroupId) </p>
+        </div>
+         <input type="hidden" name="Id" id="Id" value="@Html.ValueFor(model=>model.Id)"/>
+        <input type="submit" value="Change" />
+    }
+      
+</body>
+</html>
