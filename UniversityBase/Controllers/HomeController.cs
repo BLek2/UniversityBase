@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Collections;
 using UniversityBase.Models;
+using System.Data.SqlClient;
 
 
 namespace UniversityBase.Controllers
@@ -29,15 +30,6 @@ namespace UniversityBase.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Student(Student student,string FindNames)
-        {
-            IEnumerable<Student> students = UniversityDb.Students;
-            ViewBag.students = students;
-
-           
-            return View();
-        }
-        [HttpPost]
         public ActionResult StudentResult(string FindName, string FindSurname, int? Age, int? Course)
         {
             if(Age == null){            
@@ -47,10 +39,10 @@ namespace UniversityBase.Controllers
                     Course = 0;
             }
 
-            System.Data.SqlClient.SqlParameter parametr1 = new System.Data.SqlClient.SqlParameter("@Name", FindName);
-            System.Data.SqlClient.SqlParameter parametr2 = new System.Data.SqlClient.SqlParameter("@Surname", FindSurname);
-            System.Data.SqlClient.SqlParameter parametr3 = new System.Data.SqlClient.SqlParameter("@Age", Age);
-            System.Data.SqlClient.SqlParameter parametr4 = new System.Data.SqlClient.SqlParameter("@Course", Course);
+            SqlParameter parametr1 = new SqlParameter("@Name", FindName);
+            SqlParameter parametr2 = new SqlParameter("@Surname", FindSurname);
+            SqlParameter parametr3 = new SqlParameter("@Age", Age);
+            SqlParameter parametr4 = new SqlParameter("@Course", Course);
  
             var StudentsByName = UniversityDb.Students.SqlQuery("SELECT * FROM dbo.Students " +
                 "WHERE Name LIKE @Name OR Surname LIKE @Surname OR Age=@Age OR Course=@Course  ", parametr1, parametr2,parametr3,parametr4);
@@ -82,10 +74,22 @@ namespace UniversityBase.Controllers
 
             return View();
         }
+
         [HttpPost]
-        public ActionResult Group(Group group)
+        public ActionResult GroupResult(string NameOfGroup, int? CountOfUsers)
         {
-            return View();
+           if(CountOfUsers == null)
+            {
+                CountOfUsers = 0;
+            }
+
+            SqlParameter parametr1 = new SqlParameter("@NameOfGroup", NameOfGroup);
+            SqlParameter parametr2 = new SqlParameter("@CountOfUsers", CountOfUsers);
+
+            var GroupSearched = UniversityDb.Groups.SqlQuery("SELECT * FROM dbo.Groups WHERE NameOfGroup LIKE @NameOfGroup OR CountOfUsers=@CountOfUsers", parametr1, parametr2);
+
+            ViewBag.GroupSearched = GroupSearched;
+            return PartialView();
         }
         [HttpGet]
         public ActionResult Mark()

@@ -21,6 +21,18 @@
 
 <div id="AddGroup" ></div>
 <hr/>
+@using (Ajax.BeginForm("GroupResult", "Home", new AjaxOptions{UpdateTargetId= "SearchedResult" }))
+{
+   <input type="text" name="NameOfGroup" id="NameOfGroup" />
+   <input type="number" name="CountOfUsers" id="CountOfUsers" />
+   <input type="submit" value="Find"/>
+
+}
+<div id="SearchedResult">
+
+</div>
+
+
 <table>
     <tr>
     <th>Name Of Group</th>

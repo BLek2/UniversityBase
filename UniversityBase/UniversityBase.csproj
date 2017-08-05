@@ -143,6 +143,7 @@
     <Content Include="Views\Edit\ChangeOurMark.cshtml" />
     <Content Include="Views\Home\StudentResult.cshtml" />
     <Content Include="Views\Home\AdvanceSearch.cshtml" />
+    <Content Include="Views\Home\GroupResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
