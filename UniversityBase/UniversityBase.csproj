@@ -144,6 +144,7 @@
     <Content Include="Views\Home\StudentResult.cshtml" />
     <Content Include="Views\Home\AdvanceSearch.cshtml" />
     <Content Include="Views\Home\GroupResult.cshtml" />
+    <Content Include="Views\Home\MarkFromStudent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

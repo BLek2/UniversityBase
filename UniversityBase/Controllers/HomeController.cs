@@ -101,9 +101,15 @@ namespace UniversityBase.Controllers
 
             return View();
         }
-        [HttpPost]
-        public ActionResult Mark(Mark mark)
+        [HttpGet]
+        public ActionResult MarkFromStudent(int? Id)
         {
+
+            var OurStudent=UniversityDb.Students.Find(Id);
+
+          
+            var FindMarkStudent = UniversityDb.Marks.Where(p => p.IdStudent == OurStudent.Id);
+            ViewBag.FindMarkStudent = FindMarkStudent;
             return View();
         }
 
