@@ -18,12 +18,17 @@
 
 <div id="AddStudent"></div>
 <hr/>
+<p>Find Student:</p>
 @using (Ajax.BeginForm("StudentResult", "Home", new AjaxOptions { UpdateTargetId= "SearchedResult" }))
 {
+    <label>Name</label>
     <input type="text" name="FindName" id="FindName"  />
+    <label>Surname</label>
     <input type="text" name="FindSurname" id="FindSurname" />
     <input type="submit" value="Find" />
     @Ajax.ActionLink("Advanced search options", "AdvanceSearch", "Home", new AjaxOptions { UpdateTargetId = "AdvanceSearch" })
+    <br/>
+    <br/>
     <div id="AdvanceSearch" >
 
     </div>

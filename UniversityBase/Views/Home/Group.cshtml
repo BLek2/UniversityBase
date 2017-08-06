@@ -23,7 +23,9 @@
 <hr/>
 @using (Ajax.BeginForm("GroupResult", "Home", new AjaxOptions{UpdateTargetId= "SearchedResult" }))
 {
+   <label>NameOfGroup</label>
    <input type="text" name="NameOfGroup" id="NameOfGroup" />
+   <label>CountOfUsers</label>
    <input type="number" name="CountOfUsers" id="CountOfUsers" />
    <input type="submit" value="Find"/>
 
@@ -32,7 +34,7 @@
 
 </div>
 
-
+<hr/>
 <table>
     <tr>
     <th>Name Of Group</th>

@@ -38,7 +38,7 @@ namespace UniversityBase.Controllers
             {
                 UniversityDb.Groups.Add(OurNewGroup);
                 UniversityDb.SaveChanges();
-                return Json("The group was successfully added!");
+                return RedirectToAction("Group", "Home");
             }
             return View(group);
         }
@@ -58,7 +58,7 @@ namespace UniversityBase.Controllers
             {
                 UniversityDb.Students.Add(student);
                 UniversityDb.SaveChanges();
-                return Json("Student was successfully added  ");
+                return RedirectToAction("Student", "Home");
             }
 
 
@@ -77,7 +77,7 @@ namespace UniversityBase.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult AddNewMarkStudent(Mark mark)
+        public ActionResult AddNewMarkStudent(Mark mark)
         {
             IEnumerable<Mark> DbMark = UniversityDb.Marks;
             foreach(var b in DbMark)
@@ -95,7 +95,7 @@ namespace UniversityBase.Controllers
              SelectList marks = new SelectList(UniversityDb.Students, "Id", "Name");
             ViewBag.marks = marks;
 
-            return Json("Marks for student successfully added!");
+            return RedirectToAction("Mark", "Home");
         }
         //GET, POST for Delete Model
         [HttpPost]
