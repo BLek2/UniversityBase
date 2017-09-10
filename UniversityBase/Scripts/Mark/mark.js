@@ -6,6 +6,8 @@
         url: '/Home/JsonMark',
         success: function (data)
         {
+          
+           
             var marks = $.parseJSON(data);
             for (var i = 0; i < marks.length; i++)
             {
@@ -59,7 +61,7 @@
                     + '<td>' + marks[i].WebDesign + '</td>'
                     + '<td>' + marks[i].Student + '</td>'
                     + '<td  >' + '<form action="/Edit/EditMark" method="post" >' + strResult1 + '  <input type="submit" value="Edit">' + '</form>' + '</td>'
-                    + '<td  >' + '<form action="/Edit/EditMark" method="post" method="post" onsubmit="return WannaReally()">' + strResult1 + '  <input type="submit" value="Delete">' + '</form>' + '</td>'
+                    + '<td  >' + '<form action="/Edit/DeleteMark" method="post" method="post" onsubmit="return WannaReally()">' + strResult1 + '  <input type="submit" value="Delete">' + '</form>' + '</td>'
 
                     + '</tr>');
 

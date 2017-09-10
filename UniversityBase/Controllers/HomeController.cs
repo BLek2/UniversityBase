@@ -96,8 +96,7 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult Mark()
         {
-           
-
+      
 
 
             return View();
@@ -105,8 +104,11 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public JsonResult JsonMark()
         {
-            var Marks = UniversityDb.Marks.Join(UniversityDb.Students,
-                p => p.Id,
+            IEnumerable<Mark> marks = UniversityDb.Marks;
+            IEnumerable<Student> students = UniversityDb.Students;
+
+            var Marks = marks.Join(students,
+                p => p.IdStudent,
                 c => c.Id,
                 (p, c) => new {
                     Id=p.Id,
@@ -119,13 +121,14 @@ namespace UniversityBase.Controllers
                     Law=p.Law,
                     Programming=p.Programming,
                     WebDesign=p.WebDesign,
-                    Student =c.Name 
+                    Student = c.Name 
                 });
-            
 
-         
+
 
           
+
+
 
             var ResultMarks = JsonConvert.SerializeObject(Marks);
 
