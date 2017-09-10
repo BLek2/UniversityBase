@@ -6,7 +6,9 @@ using System.Web.Mvc;
 using System.Collections;
 using UniversityBase.Models;
 using System.Data.SqlClient;
-
+using System.Data.Entity;
+using System.Dynamic;
+using Newtonsoft.Json;
 
 namespace UniversityBase.Controllers
 {
@@ -24,8 +26,8 @@ namespace UniversityBase.Controllers
         public ActionResult Student()
         {
             IEnumerable<Student> students = UniversityDb.Students;
-            ViewBag.students = students;
 
+            ViewBag.students = students;
 
             return View();
         }
@@ -94,12 +96,40 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult Mark()
         {
-            IEnumerable<Mark> marks = UniversityDb.Marks;
-            ViewBag.marks = marks;
+           
 
 
 
             return View();
+        }
+        [HttpGet]
+        public JsonResult JsonMark()
+        {
+            var Marks = UniversityDb.Marks.Join(UniversityDb.Students,
+                p => p.Id,
+                c => c.Id,
+                (p, c) => new {
+                    Id=p.Id,
+                    Math =p.Math,
+                    History=p.History,
+                    Psychology=p.Psychology,
+                    Literature=p.Literature,
+                    Cooking=p.Cooking,
+                    Music=p.Music,
+                    Law=p.Law,
+                    Programming=p.Programming,
+                    WebDesign=p.WebDesign,
+                    Student =c.Name 
+                });
+            
+
+         
+
+          
+
+            var ResultMarks = JsonConvert.SerializeObject(Marks);
+
+            return Json(ResultMarks, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
         public ActionResult MarkFromStudent(int? Id)

@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UniversityBase.Models
 {
+    [Serializable]
     public class Mark
     {
         [Key]
