@@ -1,8 +1,41 @@
-﻿
+﻿@model UniversityBase.Models.Mark
 @{
     ViewBag.Title = "Mark";
     Layout = "~/Views/Master_Layout.cshtml";
 }
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/General/FirstJs.js" type="text/javascript" ></script>
+<script src="~/Scripts/Mark/mark.js" type="text/javascript"></script>
+<link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css" />
 
-<h2>Mark</h2>
+
+<p style="text-align:right;">@Ajax.ActionLink("Add  new marks", "AddNewMarkStudent", "Edit", new AjaxOptions { UpdateTargetId = "AddMarks" })</p>
+
+<div id="AddMarks"></div>
+
+ <hr/>
+
+
+
+<table id="Marks">
+    <tr>
+        <th>Math</th>
+        <th>History</th>
+        <th>Psychology</th>
+        <th>Literature</th>
+        <th>Cooking</th>
+        <th>Music</th>
+        <th>Law</th>
+        <th>Programming</th>
+        <th>WebDesign</th>
+        <th>Student</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+ 
+
+</table>
+
 

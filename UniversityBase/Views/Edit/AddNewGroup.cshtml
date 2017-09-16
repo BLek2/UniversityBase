@@ -4,12 +4,17 @@
 }
 <script src="~/Scripts/jquery-3.1.1.js" ></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js" ></script>
+<link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css"/>
+
+
 
 @using (Html.BeginForm("AddNewGroup", "Edit", FormMethod.Post))
 {
+    @Html.ValidationSummary(true)
     <div>
         <p>@Html.LabelFor(model => model.NameOfGroup, "Create name of new Group")</p>
-        <p>@Html.EditorFor(model => model.NameOfGroup)</p>
+        <p>@Html.EditorFor(model => model.NameOfGroup) @Html.ValidationMessageFor(model => model.NameOfGroup)   </p>
+
     </div>
 
 
