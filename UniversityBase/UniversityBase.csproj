@@ -114,6 +114,7 @@
     <Content Include="Scripts\json-serialize.js" />
     <Content Include="Scripts\json-serialize.min.js" />
     <Content Include="Scripts\Mark\mark.js" />
+    <Content Include="Scripts\Student\student.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

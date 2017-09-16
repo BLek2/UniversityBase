@@ -7,6 +7,7 @@
 <script src="~/Scripts/jquery-3.1.1.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script src="~/Scripts/General/FirstJs.js" type="text/javascript"></script>
+<script src="~/Scripts/Student/student.js" type="text/javascript"></script>
 <link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css" />
 
 <style>
@@ -40,7 +41,7 @@
 
 </div>
 <hr/>
-<table>
+<table  id="Students">
     <tr>
         <th>Name</th>
         <th>Surname</th>
@@ -50,36 +51,7 @@
         <th>Group</th>
 
     </tr>
-    @foreach (var b in ViewBag.students)
-    {
-        <tr>
-            <td>@b.Name</td>
-            <td>@b.Surname</td>
-            <td>@b.AgeOfBirth</td>
-            <td>@b.Course</td>
-            <td>@b.Age</td>
-            <td>@b.Group</td>
-
-            <td>
-               @using (Html.BeginForm("EditStudent", "Edit", FormMethod.Post))
-               {
-                <input type="hidden" value="@b.Id" name="Id" id="Id">
-                <input type="submit" value="Edit" />
-
-               }
-            </td>
-            <td>
-                @using (Html.BeginForm("DeleteStudent", "Edit", FormMethod.Post, new { onsubmit = "return WannaReally()" }))
-                {
-                    <input type="hidden" value="@b.Id" name="Id" id="Id">
-                    <input type="submit" value="Delete" />
-                }
-
-            </td>
-            
-
-        </tr>
-    }
+  
 </table>
 
 

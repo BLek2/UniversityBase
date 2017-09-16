@@ -5,9 +5,7 @@
         contentType: 'application/json',
         url: '/Home/JsonMark',
         success: function (data)
-        {
-          
-           
+        {   
             var marks = $.parseJSON(data);
             for (var i = 0; i < marks.length; i++)
             {

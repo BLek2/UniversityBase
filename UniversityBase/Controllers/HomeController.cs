@@ -22,47 +22,75 @@ namespace UniversityBase.Controllers
             return View();
         }
 
-        [HttpGet]
+        
         public ActionResult Student()
         {
-            IEnumerable<Student> students = UniversityDb.Students;
-
-            ViewBag.students = students;
+         
+            
 
             return View();
+        }
+        [HttpGet]
+        public JsonResult JsonStudent()
+        {
+            IEnumerable<Student> students = UniversityDb.Students;
+            IEnumerable<Group> groups = UniversityDb.Groups;
+
+            var Students = students.Join(groups,
+                p => p.GroupId,
+                c => c.Id,
+                (p, c) => new
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Surname = p.Surname,
+                    AgeOfBirth = p.AgeOfBirth,
+                    Course = p.Course,
+                    Age = p.Age,
+                    Group = c.NameOfGroup
+
+                });
+
+            var studentResult = JsonConvert.SerializeObject(Students);
+
+
+
+            return Json(studentResult, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult StudentResult(string FindName, string FindSurname, int? Age, int? Course)
         {
-            if(Age == null){            
-                    Age = 0;
+            if (Age == null)
+            {
+                Age = 0;
             }
-            if(Course == null){                
-                    Course = 0;
+            if (Course == null)
+            {
+                Course = 0;
             }
 
             SqlParameter parametr1 = new SqlParameter("@Name", FindName);
             SqlParameter parametr2 = new SqlParameter("@Surname", FindSurname);
             SqlParameter parametr3 = new SqlParameter("@Age", Age);
             SqlParameter parametr4 = new SqlParameter("@Course", Course);
- 
+
             var StudentsByName = UniversityDb.Students.SqlQuery("SELECT * FROM dbo.Students " +
-                "WHERE Name LIKE @Name OR Surname LIKE @Surname OR Age=@Age OR Course=@Course  ", parametr1, parametr2,parametr3,parametr4);
+                "WHERE Name LIKE @Name OR Surname LIKE @Surname OR Age=@Age OR Course=@Course  ", parametr1, parametr2, parametr3, parametr4);
 
 
 
 
             ViewBag.StudentsByName = StudentsByName;
-            
 
-            
+
+
 
             return PartialView();
         }
-        
+
         public ActionResult AdvanceSearch()
         {
-           
+
 
             return PartialView();
         }
@@ -80,7 +108,7 @@ namespace UniversityBase.Controllers
         [HttpPost]
         public ActionResult GroupResult(string NameOfGroup, int? CountOfUsers)
         {
-           if(CountOfUsers == null)
+            if (CountOfUsers == null)
             {
                 CountOfUsers = 0;
             }
@@ -96,7 +124,7 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult Mark()
         {
-      
+
 
 
             return View();
@@ -110,23 +138,24 @@ namespace UniversityBase.Controllers
             var Marks = marks.Join(students,
                 p => p.IdStudent,
                 c => c.Id,
-                (p, c) => new {
-                    Id=p.Id,
-                    Math =p.Math,
-                    History=p.History,
-                    Psychology=p.Psychology,
-                    Literature=p.Literature,
-                    Cooking=p.Cooking,
-                    Music=p.Music,
-                    Law=p.Law,
-                    Programming=p.Programming,
-                    WebDesign=p.WebDesign,
-                    Student = c.Name 
+                (p, c) => new
+                {
+                    Id = p.Id,
+                    Math = p.Math,
+                    History = p.History,
+                    Psychology = p.Psychology,
+                    Literature = p.Literature,
+                    Cooking = p.Cooking,
+                    Music = p.Music,
+                    Law = p.Law,
+                    Programming = p.Programming,
+                    WebDesign = p.WebDesign,
+                    Student = c.Name
                 });
 
 
 
-          
+
 
 
 
@@ -138,14 +167,15 @@ namespace UniversityBase.Controllers
         public ActionResult MarkFromStudent(int? Id)
         {
 
-            var OurStudent=UniversityDb.Students.Find(Id);
+            var OurStudent = UniversityDb.Students.Find(Id);
 
-          
+
             var FindMarkStudent = UniversityDb.Marks.Where(p => p.IdStudent == OurStudent.Id);
             ViewBag.FindMarkStudent = FindMarkStudent;
             return View();
         }
+   
 
-     
+
     }
 }
