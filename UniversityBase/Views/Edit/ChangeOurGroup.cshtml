@@ -1,0 +1,35 @@
+﻿@model UniversityBase.Models.Group
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ChangeOurGroup</title>
+</head>
+<body>
+  @using (Html.BeginForm("ChangeOurGroup", "Edit", FormMethod.Post))
+  {
+    @Html.ValidationSummary(true)
+    <div>
+     <p>@Html.LabelFor(model=>model.NameOfGroup)</p>
+     <p>@Html.EditorFor(model => model.NameOfGroup) @Html.ValidationMessageFor(model=>model.NameOfGroup)</p>
+    </div>
+    <div>
+        <p>@Html.LabelFor(model => model.CountOfUsers)</p>
+        <p>@Html.EditorFor(model => model.CountOfUsers) @Html.ValidationMessageFor(model=>model.CountOfUsers)</p>
+    </div>
+    <input type="hidden" name="Id" id="Id" value="@Html.ValueFor(model=>model.Id)" />
+    <input type="submit" value="Change" />
+
+  }
+    <br />
+    <br />
+    <br />
+    <br />
+    @Html.ActionLink("Back to Group", "Group","Home")
+</body>
+</html>

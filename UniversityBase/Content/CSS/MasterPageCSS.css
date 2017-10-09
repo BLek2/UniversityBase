@@ -23,7 +23,9 @@ div .MenuItem {
 p {
     font-size: 20px;
 }
-
+a {
+    text-decoration: none;
+}
 #menu {
     padding-bottom: 20px;
     text-align: center;
@@ -37,4 +39,5 @@ p {
 {
     font-size:40px;
 }
+
 

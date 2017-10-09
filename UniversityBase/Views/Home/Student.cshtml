@@ -1,16 +1,57 @@
 ﻿@model UniversityBase.Models.Student
+
 @{
     ViewBag.Title = "Student";
     Layout = "~/Views/Master_Layout.cshtml";
 }
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/General/FirstJs.js" type="text/javascript"></script>
+<script src="~/Scripts/Student/student.js" type="text/javascript"></script>
+<link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css" />
+
 <style>
     a {
         text-decoration: none;
     }
 </style>
 
-
 <p style="text-align:right;">@Ajax.ActionLink("Add  new student", "AddNewStudent", "Edit", new AjaxOptions { UpdateTargetId = "AddStudent" })</p>
 
 <div id="AddStudent"></div>
+<hr/>
+<p>Find Student:</p>
+@using (Ajax.BeginForm("StudentResult", "Home", new AjaxOptions { UpdateTargetId= "SearchedResult" }))
+{
+    <label>Name</label>
+    <input type="text" name="FindName" id="FindName"  />
+    <label>Surname</label>
+    <input type="text" name="FindSurname" id="FindSurname" />
+    <input type="submit" value="Find" />
+    @Ajax.ActionLink("Advanced search options", "AdvanceSearch", "Home", new AjaxOptions { UpdateTargetId = "AdvanceSearch" })
+    <br/>
+    <br/>
+    <div id="AdvanceSearch" >
+
+    </div>
+   
+}
+
+<div id="SearchedResult">
+
+</div>
+<hr/>
+<table  id="Students">
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>AgeOfBirth</th>
+        <th>Course</th>
+        <th>Age</th>
+        <th>Group</th>
+
+    </tr>
+  
+</table>
+
 

@@ -1,0 +1,16 @@
+﻿<table>
+    <tr>
+        <th>NameOfGroup</th>
+        <th>CountOfUsers</th>
+
+
+    </tr>
+    @foreach (var b in ViewBag.GroupSearched)
+    {
+        <tr>
+            <td>@b.NameOfGroup</td>
+            <td>@b.CountOfUsers</td>
+        </tr>
+    }
+</table>
+

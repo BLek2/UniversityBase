@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MarkFromStudent</title>
+</head>
+<body>
+    <div> 
+        <table>
+        <tr>
+            <th>Math</th>
+            <th>History</th>
+            <th>Psychology</th>
+            <th>Literature</th>
+            <th>Cooking</th>
+            <th>Music</th>
+            <th>Law</th>
+            <th>Programming</th>
+            <th>WebDesign</th>
+           
+        </tr>
+
+        @foreach(var b in ViewBag.FindMarkStudent)
+        {
+            <tr>
+                <td>@b.Math</td>
+                <td>@b.History</td>
+                <td>@b.Psychology</td>
+                <td>@b.Literature</td>
+                <td>@b.Cooking</td>
+                <td>@b.Music</td>
+                <td>@b.Law</td>
+                <td>@b.Programming</td>
+                <td>@b.WebDesign</td>
+            </tr>
+            
+
+        }
+
+
+        </table>
+        <br />
+        <br />
+        <br />
+        @Html.ActionLink("Back to Student", "Student")
+
+    </div>
+</body>
+</html>

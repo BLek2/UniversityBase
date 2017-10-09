@@ -5,19 +5,15 @@
 }
 <script src="~/Scripts/jquery-3.1.1.js" ></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js" ></script>
+<script src="~/Scripts/General/FirstJs.js" type="text/javascript"></script>
+<link href="~/Content/CSS/Validation CSS.css" rel="stylesheet" type="text/css" />
+
 <style>
     a{
         text-decoration:none;
 
     }
-    table {
-        border-collapse: collapse;
-        font-size: 30px;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-    }
+    
 </style>
 
 
@@ -25,19 +21,55 @@
 
 <div id="AddGroup" ></div>
 <hr/>
+@using (Ajax.BeginForm("GroupResult", "Home", new AjaxOptions{UpdateTargetId= "SearchedResult" }))
+{
+   <label>NameOfGroup</label>
+   <input type="text" name="NameOfGroup" id="NameOfGroup" />
+   <label>CountOfUsers</label>
+   <input type="number" name="CountOfUsers" id="CountOfUsers" />
+   <input type="submit" value="Find"/>
+
+}
+<div id="SearchedResult">
+
+</div>
+
+<hr/>
 <table>
     <tr>
     <th>Name Of Group</th>
     <th>Count Students</th>
+    <th></th>
 
     </tr>
- 
+
 @foreach(var b in ViewBag.groups)
 {
    <tr>
+
     <td>@b.NameOfGroup</td>
     <td>@b.CountOfUsers</td>
-  </tr>
+    <td>
+           @using (Html.BeginForm("EditGroup", "Edit", FormMethod.Post))
+           {
+               <input type="hidden" value="@b.Id" name="Id" id="Id">
+               <input type="submit" value="Edit" />
+
+           }
+    </td>
+    <td>
+        @using (Html.BeginForm("DeleteGroup", "Edit", FormMethod.Post, new { onsubmit = "return WannaReally()" }))
+        {
+            <input type="hidden" value="@b.Id" name="Id" id="Id">
+            <input type="submit" value="Delete"/>
+        }
+
+    </td>
+
+
+
+   </tr>
+
 }
 
 </table>

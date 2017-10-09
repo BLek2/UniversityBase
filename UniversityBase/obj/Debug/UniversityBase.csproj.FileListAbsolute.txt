@@ -49,3 +49,7 @@ C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\Uni
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.dll
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.pdb
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.csprojResolveAssemblyReference.cache
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Json.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Newtonsoft.Json.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Json.pdb
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Newtonsoft.Json.xml
