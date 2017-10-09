@@ -150,7 +150,7 @@ namespace UniversityBase.Controllers
                     Law = p.Law,
                     Programming = p.Programming,
                     WebDesign = p.WebDesign,
-                    Student = c.Name
+                    Student = c.Name + " " + c.Surname + " " +"--Course: " + c.Course
                 });
 
 
