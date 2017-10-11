@@ -53,11 +53,19 @@ namespace UniversityBase.Controllers
         [HttpPost]
         public ActionResult AddNewStudent(Student student)
         {
+           
+                
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 UniversityDb.Students.Add(student);
                 UniversityDb.SaveChanges();
+
+                var groupSelected = UniversityDb.Groups.Find(student.GroupId);
+                groupSelected.CountOfUsers++;
+                UniversityDb.Entry(groupSelected).State = System.Data.Entity.EntityState.Modified;
+                UniversityDb.SaveChanges();
+
                 return RedirectToAction("Student", "Home");
             }
 
