@@ -14,6 +14,7 @@
     <div> 
         <table>
         <tr>
+        <tr>
             <th>Math</th>
             <th>History</th>
             <th>Psychology</th>
@@ -42,8 +43,16 @@
             
 
         }
+        <tr>
+            <td>
+                @using (Html.BeginForm("EditMarkFromStudent", "Edit", FormMethod.Post))
+                {
 
-
+                    <input type="hidden" name="Id" value="@ViewBag.IdStudent" />
+                    <input type="submit" value="EditMarks" />
+                }
+            </td>
+         </tr>
         </table>
         <br />
         <br />

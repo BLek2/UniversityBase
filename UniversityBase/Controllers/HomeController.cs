@@ -77,21 +77,13 @@ namespace UniversityBase.Controllers
             var StudentsByName = UniversityDb.Students.SqlQuery("SELECT * FROM dbo.Students " +
                 "WHERE Name LIKE @Name OR Surname LIKE @Surname OR Age=@Age OR Course=@Course  ", parametr1, parametr2, parametr3, parametr4);
 
-
-
-
             ViewBag.StudentsByName = StudentsByName;
-
-
-
 
             return PartialView();
         }
 
         public ActionResult AdvanceSearch()
         {
-
-
             return PartialView();
         }
 
@@ -100,8 +92,6 @@ namespace UniversityBase.Controllers
         {
             IEnumerable<Group> groups = UniversityDb.Groups;
             ViewBag.groups = groups;
-
-
             return View();
         }
 
@@ -124,9 +114,6 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult Mark()
         {
-
-
-
             return View();
         }
         [HttpGet]
@@ -153,12 +140,6 @@ namespace UniversityBase.Controllers
                     Student = c.Name + " " + c.Surname + " " +"--Course: " + c.Course
                 });
 
-
-
-
-
-
-
             var ResultMarks = JsonConvert.SerializeObject(Marks);
 
             return Json(ResultMarks, JsonRequestBehavior.AllowGet);
@@ -166,12 +147,14 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult MarkFromStudent(int? Id)
         {
-
             var OurStudent = UniversityDb.Students.Find(Id);
 
-
             var FindMarkStudent = UniversityDb.Marks.Where(p => p.IdStudent == OurStudent.Id);
+
             ViewBag.FindMarkStudent = FindMarkStudent;
+      
+            ViewBag.IdStudent = Id;
+
             return View();
         }
    

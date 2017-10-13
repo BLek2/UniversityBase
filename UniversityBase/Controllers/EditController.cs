@@ -53,9 +53,6 @@ namespace UniversityBase.Controllers
         [HttpPost]
         public ActionResult AddNewStudent(Student student)
         {
-           
-                
-
             if (ModelState.IsValid)
             {
                 UniversityDb.Students.Add(student);
@@ -142,7 +139,7 @@ namespace UniversityBase.Controllers
         [HttpGet]
         public ActionResult ChangeOurMark(Mark SendModel)
         {
-
+          
 
             return View(SendModel);
         }
@@ -159,12 +156,17 @@ namespace UniversityBase.Controllers
         [HttpPost]
         public ActionResult EditMark(int Id)
         {
-            var SendModel = UniversityDb.Marks.Find(Id);
-
-
+            var SendModel = UniversityDb.Marks.Find(Id); //Everything is ok but when send from model it's confising error with id
+                                                         //Cuz we send from different model in context 
+           
             return View("ChangeOurMark", SendModel);
         }
-
+        [HttpPost]
+        public ActionResult EditMarkFromStudent(int Id)
+        {
+            var SendModel = UniversityDb.Marks.FirstOrDefault(p => p.IdStudent == Id);
+            return View("ChangeOurMark", SendModel);
+        }
 
         //Group -- EDIT
         [HttpPost]
