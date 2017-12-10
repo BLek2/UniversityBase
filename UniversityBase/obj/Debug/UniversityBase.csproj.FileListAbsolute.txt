@@ -49,10 +49,7 @@ C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\Uni
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.dll
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.pdb
 C:\Users\Andrew Romanuk\documents\visual studio 2017\Projects\UniversityBase\UniversityBase\obj\Debug\UniversityBase.csprojResolveAssemblyReference.cache
-C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Json.dll
 C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Newtonsoft.Json.dll
-C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Json.pdb
-C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Newtonsoft.Json.xml
 C:\Users\Andrew Romanuk\source\repos\UniversityBase\UniversityBase\bin\roslyn\csc.exe
 C:\Users\Andrew Romanuk\source\repos\UniversityBase\UniversityBase\bin\roslyn\csc.exe.config
 C:\Users\Andrew Romanuk\source\repos\UniversityBase\UniversityBase\bin\roslyn\csc.rsp
@@ -124,3 +121,19 @@ C:\Users\Andrew Romanuk\source\repos\UniversityBase\UniversityBase\obj\Debug\Uni
 C:\Users\Andrew Romanuk\source\repos\UniversityBase\UniversityBase\obj\Debug\UniversityBase.csproj.CoreCompileInputs.cache
 C:\Users\Andrew Romanuk\source\repos\UniversityBase\UniversityBase\obj\Debug\UniversityBase.dll
 C:\Users\Andrew Romanuk\source\repos\UniversityBase\UniversityBase\obj\Debug\UniversityBase.pdb
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\Microsoft.CSharp.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Configuration.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Data.DataSetExtensions.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Data.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Drawing.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.EnterpriseServices.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.ApplicationServices.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.DynamicData.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.Entity.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.Extensions.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Web.Services.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Xml.dll
+C:\Users\Andrew Romanuk\Documents\Visual Studio 2017\Projects\UniversityBase\UniversityBase\bin\System.Xml.Linq.dll

@@ -27,7 +27,7 @@ namespace UniversityBase.Models
         public int Course { get; set; }
 
         [Required(ErrorMessage = "Field is required")]
-        [Range(5,500,ErrorMessage = "Invalid course")]
+        [Range(5,500,ErrorMessage = "Invalid age")]
         public int Age { get; set; }
         public int? GroupId { get; set; }
         public Group Group { get; set; }

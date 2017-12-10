@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -146,11 +147,16 @@ namespace UniversityBase.Controllers
         [HttpPost]
         public ActionResult ChangeOurMark(Mark mark, int Id)
         {
-            UniversityDb.Entry(mark).State = System.Data.Entity.EntityState.Modified;
-            UniversityDb.SaveChanges();
+            if (ModelState.IsValid)
+            {
+             
+                UniversityDb.Entry(mark).State = EntityState.Modified;
+                UniversityDb.SaveChanges();
 
-
-            return RedirectToAction("Mark", "Home");
+ 
+                return RedirectToAction("Mark", "Home");
+            }
+            return View(mark);
         }
 
         [HttpPost]
@@ -187,11 +193,16 @@ namespace UniversityBase.Controllers
         [HttpPost]
         public ActionResult ChangeOurGroup(Group group, int Id)
         {
-            UniversityDb.Entry(group).State = System.Data.Entity.EntityState.Modified;
-            UniversityDb.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                UniversityDb.Entry(group).State = System.Data.Entity.EntityState.Modified;
+                UniversityDb.SaveChanges();
+                return RedirectToAction("Group", "Home");
 
+            }
 
-            return RedirectToAction("Group", "Home");
+            return View(group);
+
         }
         //Student -- EDIT:
 
@@ -214,11 +225,16 @@ namespace UniversityBase.Controllers
         [HttpPost]
         public ActionResult ChangeOurStudent(Student student, int Id)
         {
-            UniversityDb.Entry(student).State = System.Data.Entity.EntityState.Modified;
-            UniversityDb.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                UniversityDb.Entry(student).State = System.Data.Entity.EntityState.Modified;
+                UniversityDb.SaveChanges();
+                return RedirectToAction("Student", "Home");
 
+            }
 
-            return RedirectToAction("Student","Home");
+            return View(student);
+
         }
     }
 }

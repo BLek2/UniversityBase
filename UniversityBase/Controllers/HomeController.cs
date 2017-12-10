@@ -77,6 +77,7 @@ namespace UniversityBase.Controllers
             var StudentsByName = UniversityDb.Students.SqlQuery("SELECT * FROM dbo.Students " +
                 "WHERE Name LIKE @Name OR Surname LIKE @Surname OR Age=@Age OR Course=@Course  ", parametr1, parametr2, parametr3, parametr4);
 
+
             ViewBag.StudentsByName = StudentsByName;
 
             return PartialView();
@@ -122,6 +123,8 @@ namespace UniversityBase.Controllers
             IEnumerable<Mark> marks = UniversityDb.Marks;
             IEnumerable<Student> students = UniversityDb.Students;
 
+            marks.Where(p => p.Id > 0);
+
             var Marks = marks.Join(students,
                 p => p.IdStudent,
                 c => c.Id,
@@ -137,7 +140,7 @@ namespace UniversityBase.Controllers
                     Law = p.Law,
                     Programming = p.Programming,
                     WebDesign = p.WebDesign,
-                    Student = c.Name + " " + c.Surname + " " +"--Course: " + c.Course
+                    Student = c.Name + " " + c.Surname + " " +"-- Course: " + c.Course
                 });
 
             var ResultMarks = JsonConvert.SerializeObject(Marks);
