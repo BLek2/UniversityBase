@@ -19,13 +19,14 @@ div .MenuItem {
     text-decoration: none;
 }
 
-
 p {
     font-size: 20px;
 }
+
 a {
     text-decoration: none;
 }
+
 #menu {
     padding-bottom: 20px;
     text-align: center;
@@ -35,8 +36,8 @@ a {
     background-color: white;
     padding:10px;
 }
-.IndexAbout
-{
+
+.IndexAbout{
     font-size:40px;
 }
 

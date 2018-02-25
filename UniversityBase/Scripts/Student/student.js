@@ -4,13 +4,11 @@
         dataType: "json",
         contentType: "application/json",
         url: "/Home/JsonStudent",
-        success: function (data)
-        {
-            
+        success: function (data){   
             var students = $.parseJSON(data);
             
-            for (var i = 0; i < students.length; i++)
-            {
+            for (var i = 0; i < students.length; i++){
+
                 var value = String(students[i].Id);
                 var str1 = '  <input type="hidden" id="Id" name="Id" ';
                 var str2 = 'value="';
@@ -30,9 +28,7 @@
                     + '<td  >' + '<form action="/Edit/DeleteStudent" method="post" method="post" onsubmit="return WannaReally()">' + strResult1 + '  <input type="submit" value="Delete">' + '</form>' + '</td>'
 
                     + '</tr>');
-
             }
-        }
-        
+        } 
     });
 });

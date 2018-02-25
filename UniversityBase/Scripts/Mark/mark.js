@@ -4,35 +4,43 @@
         dataType: 'json',
         contentType: 'application/json',
         url: '/Home/JsonMark',
-        success: function (data)
-        {   
+        success: function (data) {
             var marks = $.parseJSON(data);
-            for (var i = 0; i < marks.length; i++)
-            {
+
+            for (var i = 0; i < marks.length; i++){
+
                 if (marks[i].Math == null) {
                     marks[i].Math = '';
                 }
+
                 if (marks[i].History == null) {
                     marks[i].History = '';
                 }
+
                 if (marks[i].Psychology == null) {
                     marks[i].Psychology = '';
                 }
+
                 if (marks[i].Literature == null) {
                     marks[i].Literature = '';
                 }
+
                 if (marks[i].Cooking == null) {
                     marks[i].Cooking = '';
                 }
+
                 if (marks[i].Music == null) {
                     marks[i].Music = '';
                 }
+
                 if (marks[i].Law == null) {
                     marks[i].Law = '';
                 }
+
                 if (marks[i].Programming == null) {
                     marks[i].Programming = '';
                 }
+
                 if (marks[i].WebDesign == null) {
                     marks[i].WebDesign = '';
                 }
@@ -43,7 +51,6 @@
                 var str2 = 'value="';
                 var str3 = '"';
                 var str4 = '>';
-
                
                 var strResult1 = str1 + str2 + value + str3 + str4;
 
@@ -61,13 +68,8 @@
                     + '<td  >' + '<form action="/Edit/EditMark" method="post" >' + strResult1 + '  <input type="submit" value="Edit">' + '</form>' + '</td>'
                     + '<td  >' + '<form action="/Edit/DeleteMark" method="post" method="post" onsubmit="return WannaReally()">' + strResult1 + '  <input type="submit" value="Delete">' + '</form>' + '</td>'
 
-                    + '</tr>');
-
-                
-                
-            }
-
-           
+                    + '</tr>');    
+            }       
         }
     });
    

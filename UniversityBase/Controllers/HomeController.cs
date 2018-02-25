@@ -16,20 +16,16 @@ namespace UniversityBase.Controllers
     {
         StudentContext UniversityDb = new StudentContext();
 
-        // GET: Home
         public ActionResult Index()
-        {
+        {   
             return View();
         }
-
-        
+     
         public ActionResult Student()
         {
-         
-            
-
             return View();
         }
+
         [HttpGet]
         public JsonResult JsonStudent()
         {
@@ -53,19 +49,16 @@ namespace UniversityBase.Controllers
 
             var studentResult = JsonConvert.SerializeObject(Students);
 
-
-
             return Json(studentResult, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public ActionResult StudentResult(string FindName, string FindSurname, int? Age, int? Course)
         {
-            if (Age == null)
-            {
+            if (Age == null){
                 Age = 0;
             }
-            if (Course == null)
-            {
+            if (Course == null){
                 Course = 0;
             }
 
@@ -76,7 +69,6 @@ namespace UniversityBase.Controllers
 
             var StudentsByName = UniversityDb.Students.SqlQuery("SELECT * FROM dbo.Students " +
                 "WHERE Name LIKE @Name OR Surname LIKE @Surname OR Age=@Age OR Course=@Course  ", parametr1, parametr2, parametr3, parametr4);
-
 
             ViewBag.StudentsByName = StudentsByName;
 
@@ -92,15 +84,16 @@ namespace UniversityBase.Controllers
         public ActionResult Group()
         {
             IEnumerable<Group> groups = UniversityDb.Groups;
+
             ViewBag.groups = groups;
+
             return View();
         }
 
         [HttpPost]
         public ActionResult GroupResult(string NameOfGroup, int? CountOfUsers)
         {
-            if (CountOfUsers == null)
-            {
+            if (CountOfUsers == null){
                 CountOfUsers = 0;
             }
 
@@ -110,13 +103,16 @@ namespace UniversityBase.Controllers
             var GroupSearched = UniversityDb.Groups.SqlQuery("SELECT * FROM dbo.Groups WHERE NameOfGroup LIKE @NameOfGroup OR CountOfUsers=@CountOfUsers", parametr1, parametr2);
 
             ViewBag.GroupSearched = GroupSearched;
+
             return PartialView();
         }
+
         [HttpGet]
         public ActionResult Mark()
         {
             return View();
         }
+
         [HttpGet]
         public JsonResult JsonMark()
         {
@@ -147,6 +143,7 @@ namespace UniversityBase.Controllers
 
             return Json(ResultMarks, JsonRequestBehavior.AllowGet);
         }
+
         [HttpGet]
         public ActionResult MarkFromStudent(int? Id)
         {
@@ -160,8 +157,5 @@ namespace UniversityBase.Controllers
 
             return View();
         }
-   
-
-
     }
 }

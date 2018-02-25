@@ -40,7 +40,9 @@
             <p> @Html.LabelFor(model => model.GroupId)</p>
             <p> @Html.EditorFor(model => model.GroupId)  @Html.ValidationMessageFor(model => model.GroupId) </p>
         </div>
-         <input type="hidden" name="Id" id="Id" value="@Html.ValueFor(model=>model.Id)"/>
+
+        <input type="hidden" name="Id" id="Id" value="@Html.ValueFor(model=>model.Id)"/>
+
         <input type="submit" value="Change" />
     }
     <br />
